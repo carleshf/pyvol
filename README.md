@@ -22,7 +22,7 @@ Three actions are allowed:
  * mute: toggle mute/unmute
  * ask: does nothing and shows the actual status
 
- __EXAMPLE__:
+__EXAMPLE__:
 
      % python pyvol.py ask
       35% [###       ] 
