@@ -24,8 +24,8 @@ Three actions are allowed:
 
  __EXAMPLE__:
 
-  % python pyvol.py ask
-   35% [###       ] 
-  % python pyvol.py mute
-   35% [###       ] mute
+    % python pyvol.py ask
+     35% [###       ] 
+    % python pyvol.py mute
+     35% [###       ] mute
 
