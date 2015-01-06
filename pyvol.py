@@ -1,20 +1,22 @@
 #!/usr/bin/env python
-# econsing: utf-8
+# econding: utf-8
 
 from argparse import ArgumentParser
 from colorama import init, Fore
 from commands import getstatusoutput
 
-
-def print_status( status, nchr=10 ):
+def print_status( status, nchr=10, plain=False) :
     dchr = int( status[ 'vol' ] ) * nchr / 100
-    disp = '{0:>3}% [{1}{2}] {3}'.format(
-        status[ 'vol' ],
-        '#' * dchr,
-        ' ' * ( nchr - dchr ),
-        Fore.RED + 'mute' + Fore.RESET if status[ 'status' ] == 'off' else ''
-    )
-    print( disp )
+    if plain:
+        print( status[ 'vol' ] )
+    else:
+        disp = '{0:>3}% [{1}{2}] {3}'.format(
+            status[ 'vol' ],
+            '#' * dchr,
+            ' ' * ( nchr - dchr ),
+            Fore.RED + 'mute' + Fore.RESET if status[ 'status' ] == 'off' else ''
+        )
+        print( disp )
 
 
 def get_status():
@@ -53,7 +55,10 @@ def main():
     if args.action != 'ask':
         set_volume( args.action )
     
-    print_status( get_status() )
+    if args.action == 'txt':
+        print_status( get_status(), plain=True)
+    else:
+        print_status( get_status() )
 
 
 if __name__ == '__main__':
